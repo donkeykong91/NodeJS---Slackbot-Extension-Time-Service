@@ -27,13 +27,13 @@ rtm.start();
 
 slackClient.addAuthenticatedHandler(rtm, function () {
 
-    server.listen(3000);
+    server.listen(3010);
 
 });
 
 
 server.on("listening", function() {
 
-    console.log(`IRIS is listening on ${server.address().port} in ${service.get("env")} mode.`);
+    console.log(`IRIS-Time is listening on ${server.address().port} in ${service.get("env")} mode.`);
 
 });
