@@ -6,11 +6,9 @@ const service = require("../server/service");
 const http = require("http");
 
 
-slackClient.addAuthenticatedHandler(rtm, function () {
+const server = http.createServer(service);
 
-    server.listen(3010);
-
-});
+server.listen(3010);
 
 
 server.on("listening", function() {
