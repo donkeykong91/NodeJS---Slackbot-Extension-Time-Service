@@ -14,23 +14,34 @@ service.get("/service/:location", function (request, response) {
 
 
     {let location = request.params.location;
+     let cityLocation = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${GEOCODE_API_KEY}`;
 
 
-        superagentRequest.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${GEOCODE_API_KEY}`)
+        superagentRequest.get(cityLocation)
 
-                         .then(function (geocodeResponse) {
-
-                            response.json(geocodeResponse.body.results[0].geometry.location);
-
-                         })
+                         .then(displayJson)
                          
-                         .catch(function (error) {
+                         .catch(locationError);
 
-                            console.log(error);
-
-                         });
 
     }
+
+
+    function displayJson(geocodeResponse) {
+
+        response.json(geocodeResponse.body.results[0].geometry.location);
+
+    }
+
+
+    function locationError(error) {
+
+        console.log(error);
+    
+        response.sendStatus(500);
+    
+    }
+
 
 });
 
