@@ -18,7 +18,9 @@ var moment = require("moment");
 
 
         {let locationDetails = null;
+
          let geocodeResponse = null;
+         
          let timezoneResponse = null;
 
 
@@ -85,7 +87,7 @@ var moment = require("moment");
 
                 response.json({result: timeString});
 
-                
+
             }
 
 
