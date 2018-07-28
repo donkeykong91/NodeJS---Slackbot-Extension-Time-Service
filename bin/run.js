@@ -1,4 +1,4 @@
-"strict mode"
+"use strict";
 
 
 const superagentRequest = require("superagent");
@@ -24,6 +24,7 @@ server.on("listening", function() {
 
         try {
 
+
             var respond = await superagentRequest.put(`http://127.0.0.1:3000/service/time/${server.address().port}`);
 
 
@@ -38,6 +39,7 @@ server.on("listening", function() {
             console.log("Error connecting to Iris");
 
             return
+            
 
         }
 
